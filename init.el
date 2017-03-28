@@ -1,27 +1,18 @@
-;;; init.el --- Where all the magic begins
-;;
-;; Part of the Emacs Starter Kit
-;;
-;; This is the first thing to get loaded.
-;;
-;; "Emacs outshines all other editing software in approximately the
-;; same way that the noonday sun does the stars. It is not just bigger
-;; and brighter; it simply makes everything else vanish."
-;; -Neal Stephenson, "In the Beginning was the Command Line"
+;(package-initialize)
 
-;; Load path etc:
+(require 'package)
 
-(setq dotfiles-dir (file-name-directory
-                    (or (buffer-file-name) load-file-name)))
-(add-to-list 'load-path dotfiles-dir)
+(defconst djg/custom-file (concat user-emacs-directory "custom.el"))
 
-;; You can keep system- or user-specific customizations here:
+(setq custom-file djg/custom-file
+      package-enable-at-startup nil)
+(load djg/custom-file t)
 
-(setq system-specific-config (concat dotfiles-dir system-name ".el")
-      user-specific-config (concat dotfiles-dir user-login-name ".el"))
+(setq inhibit-splash-screen t
+      inhibit-startup-message t)
 
-(if (file-exists-p system-specific-config) (load system-specific-config))
-(if (file-exists-p user-specific-config) (load user-specific-config))
+(add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
-(provide 'init)
-;;; init.el ends here
+(add-hook 'after-init-hook
+          (lambda()
+            (load (concat user-emacs-directory "init-real.el"))))
