@@ -11,11 +11,7 @@
             (byte-recompile-directory djg/init-dir 0 t)))
 
 ;; packages
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("elpa" . "http://tromey.com/elpa/"))
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives '("sunrise" . "http://joseito.republika.pl/sunrise-commander/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 (defconst emacs-major-version-rad 1000000)
 
