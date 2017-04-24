@@ -2,9 +2,9 @@
 
 (req-package rust-mode
   :mode "\\.rs$"
-  :commands rustfmt-enable-on-save
+  :commands rust-enable-format-on-save
   :config
-  (add-hook-exec 'rust-mode #'rustfmt-enable-on-save))
+  (add-hook-exec 'rust-mode #'rust-enable-format-on-save))
 
 (req-package cargo
   :require rust-mode
