@@ -93,23 +93,6 @@
   :mode ("\\.cmake$" . cmake-mode)
   :ensure t)
 
-;; CMake IDE
-(use-package cmake-ide
-  :ensure t
-  :defer)
-
-(defun use-cmake-ide ()
-  (cmake-ide-setup)
-  (when (cmake-ide--locate-cmakelists)
-    (setq cmake-ide-dir (concat (cmake-ide--locate-cmakelists) "build/"))))
-
-(eval-after-load 'cc-mode
-  '(bind-keys :map c++-mode-map
-              ("M-k"   . cmake-ide-compile)))
-
-(unless (eq system-type 'windows-nt)
-  (add-hook 'c-mode-common-hook #'use-cmake-ide))
-
 ;; comment-dwim-2
 (use-package comment-dwim-2
   :ensure t
