@@ -86,14 +86,19 @@ error is signaled."
   (find-file-other-window buffer-file-name)
   (djg/find-other-file))
 
+(make-variable-buffer-local
+ (defvar djg/untabify-on-write t
+   "If the buffer should be untabified on write."))
+
 (defun djg/untabify-buffer ()
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward "[ \t]+$" nil t)
-      (delete-region (match-beginning 0) (match-end 0)))
-    (goto-char (point-min))
-    (if (search-forward "\t" nil t)
-        (untabify (1- (point)) (point-max))))
+  (if djg/untabify-on-write
+      (save-excursion
+        (goto-char (point-min))
+        (while (re-search-forward "[ \t]+$" nil t)
+          (delete-region (match-beginning 0) (match-end 0)))
+        (goto-char (point-min))
+        (if (search-forward "\t" nil t)
+            (untabify (1- (point)) (point-max)))))
   nil)
 
 (defun djg/irony-mode-init ()
