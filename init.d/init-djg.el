@@ -1,18 +1,5 @@
 ;;; init-djg.el --- Dan's Emacs initialization
 
-;; Copyright 2015 Daniel Glastonbury
-
-;; Description: Dan's Emacs initialization
-;; Author: Dan Glastonbury <dan.glastonbury@gmail.com>
-;; Version: 0.0.1
-;; Package-Requires: (package)
-
-
-;;; Commentary:
-;; 	No comments
-
-;;; Code:
-
 (defmacro GUI () `(window-system))
 (defmacro OSX () `(equal system-type 'darwin))
 (defmacro WINNT () `(equal system-type 'windows-nt))
@@ -87,21 +74,10 @@
   :bind
 (("C-c f" . clang-format-buffer)))
 
-;; CMake
-(use-package cmake-mode
-  :defer t
-  :mode ("\\.cmake$" . cmake-mode)
-  :ensure t)
-
 ;; comment-dwim-2
 (use-package comment-dwim-2
   :ensure t
   :bind ("M-;" . comment-dwim-2))
-
-;; Edit Server
-(use-package edit-server
-  :if window-system
-  :init (add-hook 'after-init-hook 'server-start t))
 
 ;; (use-package ergoemacs-mode
 ;;   :defer t
@@ -165,22 +141,6 @@
   :config (progn (add-hook 'c-mode-common-hook 'moz/set-c-style)
                  (add-hook 'c-mode-common-hook 'moz/make-newline-indent)))
 
-;;; Multiple Cursors
-(use-package multiple-cursors
-  :bind (("C->" . mc/mark-next-like-this)
-         ("C-<" . mc/mark-previous-like-this)
-         ("C-c C-<" . mc/mark-all-like-this))
-  :ensure t)
-
-;;; Projectile
-(use-package projectile
-  :commands (projectile-global-mode projectile-ignored-projects projectile-compile-project)
-  :init (progn
-	  (projectile-global-mode)
-          (defconst projectile-mode-line-lighter " Proj"))
-  :bind (("M-S-p" . projectile-find-file))
-  :defer t
-  :ensure t)
 
 (bind-key "<f8>" 'next-error)
 
@@ -194,14 +154,6 @@
 ;;   :bind (("M-x" . smex)
 ;;          ("C-c M-x" . execute-extended-command))
 ;;   :ensure t)
-
-;; string inversions
-(use-package string-inflection
-  :defer t
-  :bind (("C-c i" . string-inflection-cycle)
-         ("C-c C" . string-inflection-camelcase)        ;; Force to CamelCase
-         ("C-c L" . string-inflection-lower-camelcase)) ;; Force to lowerCamelCase
-  :ensure t)
 
 ;; Undo-tree
 (use-package undo-tree

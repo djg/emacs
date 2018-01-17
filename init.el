@@ -1,6 +1,6 @@
-(package-initialize)
-
 (require 'package)
+
+(package-initialize)
 
 (defconst djg/custom-file (concat user-emacs-directory "custom.el"))
 
