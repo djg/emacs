@@ -51,6 +51,7 @@
  '(web-mode-markup-indent-offset 2)
  '(web-mode-script-padding 0)
  '(web-mode-style-padding 0)
+ '(visible-bell t)
  '(whitespace-line-column 90))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
