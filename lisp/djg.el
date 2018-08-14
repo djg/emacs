@@ -144,4 +144,20 @@ This uses `djg/searchfox-server' and `djg/searchfox-tree' to compute the URL."
   (interactive)
   (kill-new (djg/searchfox-url-representing-point)))
 
+;;;###autoload
+(defun djg/yank-append-lines (&optional without-space)
+  "Yank each line of the current kill at the end of each subsequent line.
+
+A space will be added between each line unless WITHOUT-SPACE which can be passed in via a prefix arg."
+  (interactive "P")
+  (save-excursion
+    (let ((lines (split-string (current-kill 0) "\n")))
+      (dolist (line lines)
+        (goto-char (line-end-position))
+        (unless without-space
+          (just-one-space))
+        (insert line)
+        (unless (zerop (forward-line))
+          (insert "\n"))))))
+
 (provide 'djg)
