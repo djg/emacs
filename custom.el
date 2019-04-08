@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(auto-package-update-delete-old-versions t)
  '(auto-package-update-hide-results t)
+ '(column-number-mode t)
  '(custom-safe-themes
    (quote
     ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
