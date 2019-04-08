@@ -371,4 +371,10 @@ clean buffer we're an order of magnitude laxer about checking."
   :ensure t
   :commands web-mode)
 
+(use-package yaml-mode
+  :ensure t
+  :mode ("\\.yml\\'"
+         "\\.yaml\\'")
+  :bind (("\C-m" . newline-and-indent)))
+
 ;;; init.el ends here
