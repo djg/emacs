@@ -363,4 +363,8 @@ clean buffer we're an order of magnitude laxer about checking."
 (use-package toml-mode
   :mode "\\.toml\\'")
 
+(use-package web-mode
+  :ensure t
+  :commands web-mode)
+
 ;;; init.el ends here
