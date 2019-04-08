@@ -180,6 +180,10 @@ clean buffer we're an order of magnitude laxer about checking."
 (use-package gitignore-mode
   :defer 5)
 
+(use-package glsl-mode
+  :ensure t
+  :mode("\\.glsl\\'" "\\.vert\\'" "\\.frag\\'" "\\.geom\\'"))
+
 (use-package goto-last-change
   :bind ("C-x C-/" . goto-last-change))
 
