@@ -51,6 +51,11 @@
   :after rust-mode
   :hook (rust-mode . cargo-minor-mode))
 
+(use-package ccls
+  :ensure t
+  :after lsp-mode
+  :hook ((c-mode c++-mode objc-mode) . (lambda () (require 'ccls) (lsp))))
+
 (use-package change-inner
   :bind (("M-i" . change-inner)
 	 ("M-o M-o" . change-outer)))
@@ -60,6 +65,10 @@
 
 (use-package cmake-mode
   :mode ("CMakeLists.txt" "\\.cmake\\'"))
+
+(use-package company-lsp
+  :ensure t
+  :commands company-lsp)
 
 (use-package compile
   :no-require
@@ -207,6 +216,14 @@ clean buffer we're an order of magnitude laxer about checking."
 (use-package lua-mode
   :mode "\\.lua\\'"
   :interpreter "lua")
+
+(use-package lsp-mode
+  :ensure t
+  :commands lsp)
+
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode)
 
 (use-package magit
   :bind (("C-x g" . magit-status)
