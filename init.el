@@ -128,6 +128,10 @@
 ;;  :config
 ;;  (global-emojify-mode))
 
+(use-package expand-region
+  :ensure t
+  :bind ("C-=" . er/expand-region))
+
 (use-package flycheck
   :commands (flycheck-mode
 	     flycheck-next-error
