@@ -352,10 +352,13 @@ clean buffer we're an order of magnitude laxer about checking."
 
 (use-package ripgrep)
 
+;(use-package rust-mode
+;  :mode "\\.rs\\'"
+;  :hook ((rust-mode . flycheck-mode)
+;	 (rust-mode . rust-enable-format-on-save)))
 (use-package rust-mode
   :mode "\\.rs\\'"
-  :hook ((rust-mode . flycheck-mode)
-	 (rust-mode . rust-enable-format-on-save)))
+  :hook ((rust-mode . flycheck-mode)))
 
 (use-package rust-playground
   :defer t)
