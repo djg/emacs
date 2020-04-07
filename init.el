@@ -105,6 +105,7 @@
          ("C-x C-<down>" . djg/buf-move-down)
          ("C-<return>" . djg/open-line-below)
          ("C-S-<return>" . djg/open-line-above)
+         ("C-x |" . djg/toggle-window-split)
          ;;("M-o" . djg/find-other-file)
          ;;("M-O". djg/find-other-file-other-window)
          ))
